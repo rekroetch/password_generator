@@ -30,61 +30,36 @@ console.log(useSpecial)
 var passCriteria = [lowLet]
 
 
-    if (useUppLet) {
-        passCriteria.push(uppLet)
-    }
+if (useUppLet) {
+    passCriteria.push(uppLet)
+}
 
-    if (useNums) {
-        passCriteria.push(nums)
-    }
+if (useNums) {
+    passCriteria.push(nums)
+}
 
-    if (useSpecial) {
-        passCriteria.push(special)
-    }
-
-
+if (useSpecial) {
+    passCriteria.push(special)
+}
 
 console.log(passCriteria)
 
-  
-for (var i = 0; i < passLength; i++) {
-    var randomCharArray = passCriteria[Math.floor(Math.random() * passCriteria.length)]
-
-    var randomChar = randomCharArray[Math.floor(Math.random() * randomCharArray.length)]
-
-    console.log(randomChar)
+// Write password to the #password input
+function writePassword() {
+    for (var i = 0; i < passLength; i++) {
+        var randomCharArray = passCriteria[Math.floor(Math.random() * passCriteria.length)]
+    
+        var randomChar = randomCharArray[Math.floor(Math.random() * randomCharArray.length)]
+    
+        console.log(randomChar)
+        var passwordText = document.querySelector("#password");
+        passwordText.value = randomChar;
+    }
 }
 
-var newPassword = document.querySelector("password")
-password.appendChild(newPassword)
-newPassword.textContent = randomChar
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
 
 
 
 
-
-
-
-
-
-// var str = randomChar.join();
-// console.log(str);
-
-
-// document.getElementById("password").innerHTML = randomChar
-
-// // Write password to the #password input
-// function writePassword(x) {
-// //   var password = generatePassword();
-//   var passwordText = document.querySelector("#password");
-
-//   passwordText.value = password;
-
-// //   document.getElementById("password").innerHTML = randomChar
-
-// }
-
-// writePassword(randomChar)
-
-// // Add event listener to generate button
-// generateBtn.addEventListener("click", writePassword);
