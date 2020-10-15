@@ -10,7 +10,7 @@ var uppLet = [
 ]
 
 var nums = [
-    0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 
+    "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", 
 ]
 
 var special = [
@@ -46,15 +46,18 @@ console.log(passCriteria)
 
 // Write password to the #password input
 function writePassword() {
+    var password = []
     for (var i = 0; i < passLength; i++) {
         var randomCharArray = passCriteria[Math.floor(Math.random() * passCriteria.length)]
     
         var randomChar = randomCharArray[Math.floor(Math.random() * randomCharArray.length)]
     
         console.log(randomChar)
-        var passwordText = document.querySelector("#password");
-        passwordText.value = randomChar;
+
+        password.push(randomChar)
+       
     }
+    document.querySelector('#password').value = password.join("");
 }
 
 // Add event listener to generate button
