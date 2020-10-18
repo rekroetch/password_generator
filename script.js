@@ -30,24 +30,40 @@ console.log(useSpecial)
 var passCriteria = [lowLet]
 
 
+var guaranteed = []
+var useLowLet = true
+
+if (useLowLet) {
+    guaranteed.push(randomIndex(lowLet))
+}
+
 if (useUppLet) {
     passCriteria.push(uppLet)
+    guaranteed.push(randomIndex(uppLet))
 }
 
 if (useNums) {
     passCriteria.push(nums)
+    guaranteed.push(randomIndex(nums))
 }
 
 if (useSpecial) {
     passCriteria.push(special)
+    guaranteed.push(randomIndex(special))
 }
 
 console.log(passCriteria)
+console.log(guaranteed)
+
+
+function randomIndex(arr) {
+    return arr[Math.floor(Math.random() * arr.length)]
+}
 
 // Write password to the #password input
 function writePassword() {
-    var password = []
-    for (var i = 0; i < passLength; i++) {
+    var password = [guaranteed.join('')]
+    for (var i = 0; i < passLength-guaranteed.length; i++) {
         var randomCharArray = passCriteria[Math.floor(Math.random() * passCriteria.length)]
     
         var randomChar = randomCharArray[Math.floor(Math.random() * randomCharArray.length)]
@@ -62,7 +78,5 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-
 
 
